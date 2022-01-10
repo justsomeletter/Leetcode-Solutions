@@ -9,12 +9,12 @@ public:
                 break;
             }
         }
-        for(int j =-31;j<0;j++){
-        if(pow(2,j) == n){
-            cond = true;
-            break;
-        }
-        }
+        // for(int j =-31;j<0;j++){
+        // if(pow(2,j) == n){
+        //     cond = true;
+        //     break;
+        // }
+        //}
         return cond;
  }
 };
