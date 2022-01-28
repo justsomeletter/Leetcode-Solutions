@@ -4,7 +4,6 @@ public:
         int pnums[nums.size()];
         pnums[0] = nums[0];
         int ans=INT_MAX;
-        bool cond=false;
         for(int i=1;i<nums.size();i++){ // Making a prefix array
             pnums[i] = pnums[i-1]+nums[i];
         }
@@ -13,11 +12,10 @@ public:
             int rightSum = pnums[nums.size()-1]-pnums[i];
             if(leftSum == rightSum){
                 ans = min(ans,i);
-                cond = true;
+                return ans;
             }
         }
-        if(cond) return ans;
-        else return -1;
+         return -1;
         
     }
 };
