@@ -11,7 +11,6 @@ public:
             }
             else s = m+1;
         }
-        ans = letters[s%letters.size()];
-        return ans;
+        return letters[s%letters.size()];
     }
 };
