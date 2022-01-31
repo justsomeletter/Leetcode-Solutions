@@ -3,13 +3,14 @@ public:
     int mySqrt(int x) {
         int ans=1;
         if(x == 0) return 0;
-        for(int i=1;i<=x/2;i++){
-            if(i>(x/i)){
-                break;
+        int s=1,e=x;
+        while(s<=e){
+            int m= s+(e-s)/2;
+            if(m>(x/m)) e = m-1;
+            else{
+                ans = max(ans,m);
+                s = m+1;
             }
-            else if(i*i <= x)
-                ans = i;
-            
         }
         return ans;
     }
