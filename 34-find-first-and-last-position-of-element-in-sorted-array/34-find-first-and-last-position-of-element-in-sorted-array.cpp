@@ -2,6 +2,7 @@ class Solution {
 public:
     vector<int> searchRange(vector<int>& nums, int target) {
         int minPos=INT_MAX;
+        vector<int> ans(2,-1);
         int s=0,e=nums.size()-1;
         bool foundMin=false;
         while(s<=e){
@@ -14,8 +15,9 @@ public:
                 foundMin=true;
             }
         }
+        if(!foundMin) return ans;
         
-        s=0,e=nums.size()-1;
+        s=minPos,e=nums.size()-1;
         bool foundMax=false;
         int maxPos=INT_MIN;
         while(s<=e){
@@ -28,9 +30,7 @@ public:
                 foundMax=true;
             }
         }
-        vector<int> ans(2,-1);
-        // ans[0] = -1;
-        // ans[1] = -1;
+        
         if(foundMin) ans[0] = minPos;
         if(foundMax) ans[1] = maxPos;
         return ans;
