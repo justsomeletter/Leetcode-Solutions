@@ -11,20 +11,23 @@ class Solution
     bool isAnagram(string a, string b){
         
         // Your code here
-        int freq1[26]={0},freq2[26] = {0};
-        for(int i=0;i<a.length();i++){
-            freq1[a[i]-97]++;
-        }
-        for(int i=0;i<b.length();i++){
-            freq2[b[i]-97]++;
-        }
-        int ans=true;
-        for(int i=0;i<26;i++){
-            if(freq1[i] != freq2[i]){
-                ans=false;
-            }
-        }
-        return ans;
+        // int freq1[26]={0},freq2[26] = {0};
+        // for(int i=0;i<a.length();i++){
+        //     freq1[a[i]-97]++;
+        // }
+        // for(int i=0;i<b.length();i++){
+        //     freq2[b[i]-97]++;
+        // }
+        // int ans=true;
+        // for(int i=0;i<26;i++){
+        //     if(freq1[i] != freq2[i]){
+        //         ans=false;
+        //     }
+        // }
+        sort(a.begin(),a.end());
+        sort(b.begin(),b.end());
+        if(a == b) return true;
+        else return false;
     }
 
 };
