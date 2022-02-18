@@ -16,8 +16,8 @@ public:
         }
         int k=0;
         while(k<n and ans[k] == ' ')// to remove extra spaces
-            k++;                    // 
+            k++;                    // the outer while loop above might run extra time without inner 2 while loops running. which might cause more extra space to be added
         ans=ans.substr(k);
         return ans;
     }
-};
+}; // space complexity: O(n) and time complexity: O(n)
