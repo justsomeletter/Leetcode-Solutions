@@ -9,10 +9,8 @@ public:
             num=num/10;
         }
         sort(arr,arr+4);
-        int num1 = arr[0];
-        int num2 = arr[1];
-        num1 = num1*10 + arr[2];
-        num2 = num2*10 + arr[3];
+        int num1 = arr[0]*10 + arr[2];
+        int num2 = arr[1]*10 + arr[3];
         return num1+num2;
     }
 };
