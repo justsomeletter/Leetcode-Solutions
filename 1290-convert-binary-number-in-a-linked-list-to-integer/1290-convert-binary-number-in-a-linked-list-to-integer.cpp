@@ -17,14 +17,13 @@ public:
             size++;
             temp=temp->next;
         }
-        int p=size-1;
+    
         temp=head;
         while(size and temp!=NULL){
             int data=temp->val;
             if(data)
-                ans += pow(2,p);
+                ans += pow(2,size-1);
             
-            p--;
             size--;
             temp=temp->next;
         }
