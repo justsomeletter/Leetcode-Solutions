@@ -18,7 +18,12 @@ public:
             size++;
         }
         
-        if(size== n) return head->next;
+        if(size== n) {// when we want to delete first element
+            ListNode *temp=head->next; 
+            delete head;
+            return temp;
+        }
+            
         
         int pos=size-n;
         
