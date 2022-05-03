@@ -14,10 +14,9 @@ public:
                 if(start == -1){
                     start=i;
                 }
-                else end=i;
+                else end=i+1;
             }
         }
-        if(start == end) return 0;
-        else return end-start +1;
+        return end-start;
     }
 };
