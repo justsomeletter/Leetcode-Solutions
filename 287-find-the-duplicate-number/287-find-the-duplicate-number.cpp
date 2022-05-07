@@ -2,12 +2,18 @@ class Solution {
 public:
     int findDuplicate(vector<int>& nums) {
         
-        for(int i=0;i<nums.size();i++){
-            if(nums[abs(nums[i])]<0){
-            	return abs(nums[i]);
-            } 
-           else nums[abs(nums[i])] = -nums[abs(nums[i])];
+        int fast = nums[0],slow = nums[0];
+        
+        do {// keep iterating till slow and fast are not equal
+            fast = nums[nums[fast]];
+            slow = nums[slow];
+        }while(slow != fast);
+        
+        fast = nums[0];
+        while(fast != slow){
+            fast = nums[fast];
+            slow = nums[slow];
         }
-        return 0;
+        return slow;
     }
 };
