@@ -1,12 +1,14 @@
 class Solution {
 public:
     void rotate(vector<vector<int>>& matrix) {
-        int n=matrix.size();
-       for(int row=0;row<n;row++)
-	 	    for(int col=0;col<row;col++)
-	 		    swap(matrix[row][col],matrix[col][row]);
-        
-        for(int row=0;row<n;row++)
-	 	    reverse(matrix[row].begin(),matrix[row].end());
+        //first we will swap the array along the main daigonal
+        for(int i=0;i<matrix.size();i++){
+            for(int j=0;j<=i;j++){
+                swap(matrix[i][j],matrix[j][i]);
+            }
+        }
+       for(int i=0;i<matrix.size();i++){
+           reverse(matrix[i].begin(),matrix[i].end());
+       }
     }
 };
