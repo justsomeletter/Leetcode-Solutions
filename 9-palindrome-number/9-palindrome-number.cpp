@@ -2,7 +2,7 @@ class Solution {
 public:
     bool isPalindrome(int x) {
         if(x<0) return false;
-        long long ans=0,temp=x;
+        long long int ans=0,temp=x;
         while(temp){
             ans *= 10;
             int rem = temp%10;
