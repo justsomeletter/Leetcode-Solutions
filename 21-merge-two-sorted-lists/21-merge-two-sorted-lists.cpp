@@ -11,10 +11,22 @@
 class Solution {
 public:
     ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
+        if(list1 == NULL) return list2;
+        
+        if(list2 == NULL) return list1;
+        
         ListNode *head = NULL,*tail = NULL;
+        
         while(list1 != NULL and list2 != NULL){
+            
+            //creating new node
             ListNode *new_node = new ListNode();
-            if(tail != NULL) tail->next = new_node;
+            
+            //to connect the nodes of the linked list
+            if(tail != NULL){
+                tail->next = new_node;
+            }
+            
             if(list1->val > list2->val){
                 new_node->val = list2->val;
                 list2 = list2->next;
@@ -23,25 +35,21 @@ public:
                new_node->val = list1->val;
                 list1 = list1->next; 
             }
+            
+            //when first node of final linked list is made
             if(head == NULL){
                 head = new_node;
                 tail = head;
             }
+            
+            // to keep track of last node in the newly created linked list
             tail = new_node;
         }
-        //if atleast one of them was empty
-        if(head == NULL){
-             if(list1 == NULL) head = list2;
-            else if(list2 == NULL) head = list1;
-        }
         
-        //if List1 becomes empty
-        else{
          if(list2 != NULL)
             tail->next = list2;
         else if(list1 != NULL)
             tail->next = list1;   
-        }
         
         return head;
     }
