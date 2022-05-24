@@ -19,7 +19,9 @@ public:
         while(curr != NULL){
             if(curr->val == prev->val){
                 prev->next=curr->next;
+                ListNode *temp = curr;
                 curr = curr->next;
+                delete temp;
             }
             else{
                 prev=prev->next;
