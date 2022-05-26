@@ -11,14 +11,27 @@
 class Solution {
 public:
     ListNode* reverseList(ListNode* head) {
-        ListNode *curr=head,*prev=NULL;
-        while(curr!=NULL){
-            ListNode *nextNode = curr->next;
+        //if there are only 0 or 1 node simple return the head itself
+        if(head == NULL or head->next == NULL) return head;
+        
+        ListNode *prev=NULL, *curr=head, *fast=head->next;
+        
+        while(curr != fast){
+            
+            //updation of value
+            prev = curr;
+            curr = fast;
+            
+            // only update fast till it reaches last node
+            if(fast->next != NULL) fast=fast->next;
+            
+            //making new links
             curr->next = prev;
-            prev=curr;
-            curr=nextNode;
+            
+            //After reversing head becomes last node & should point to NULL.                        //This case will run only for one time
+            if(prev == head) prev->next = NULL;
         }
-        head=prev;
+        head = curr;
         return head;
     }
 };
