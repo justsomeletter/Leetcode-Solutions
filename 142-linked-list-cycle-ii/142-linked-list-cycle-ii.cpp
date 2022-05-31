@@ -10,17 +10,24 @@ class Solution {
 public:
     ListNode *detectCycle(ListNode *head) {
         
-        if(head == NULL or head->next == NULL) 
-            return NULL;
-        ListNode *temp=head;
-        unordered_set<ListNode*> m;
+        bool ans=false;
+        if(head == NULL or head->next == NULL) return NULL;
+       ListNode *slow=head,*fast=head;
         
-        while(temp != NULL){
-            if(m.find(temp) != m.end()) return temp;
-            
-            m.insert(temp);
-            temp=temp->next;
+        while(fast->next != NULL and fast->next->next != NULL ){
+            slow= slow->next;
+            fast=fast->next->next;
+            if(fast == slow) {
+                ans=true;
+                break;                
+            }
         }
-        return NULL;
+        if(!ans) return NULL;
+        fast=head;
+        while(fast != slow){
+            fast=fast->next;
+            slow=slow->next;
+        }
+        return slow;
     }
 };
