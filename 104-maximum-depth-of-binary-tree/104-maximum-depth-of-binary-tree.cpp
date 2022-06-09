@@ -14,10 +14,23 @@ public:
     int maxDepth(TreeNode* root) {
         if(root == NULL) return 0;
         
-        // recursive case
-        int l = maxDepth(root->left);
-        int r = maxDepth(root->right);
-        
-        return max(l,r)+1;
+       queue<TreeNode*> q;
+        q.push(root);
+        int ans=0;
+        while(!q.empty()){
+            ans++;
+            TreeNode *temp;
+            int s = q.size();
+            for(int i=0;i<s;++i){
+               TreeNode* temp = q.front();
+                q.pop();
+                
+                if(temp->left != NULL)
+                     q.push(temp->left);
+                if(temp->right != NULL)
+                    q.push(temp->right);
+            }
+        }
+        return ans;
     }
 };
